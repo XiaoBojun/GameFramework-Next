@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 #if UNITY_2021_1_OR_NEWER
-                   
+
 #else
 public static class KeyValuePairExtensions
 {
@@ -12,11 +12,15 @@ public static class KeyValuePairExtensions
         value = pair.Value;
     }
 }
+#endif
+
 public static class DictionaryExtensions
 {
+#if UNITY_2021_1_OR_NEWER
+#else
     public static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key)
     {
         return dictionary.TryGetValue(key, out TValue value) ? value : default(TValue);
     }
-}
 #endif
+}

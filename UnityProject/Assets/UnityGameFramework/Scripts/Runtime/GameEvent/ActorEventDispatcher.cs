@@ -355,7 +355,7 @@ namespace UnityGameFramework.Runtime
                     }
                 }
 
-                Log.Assert(iEventCnt == m_ProcessEventList.Count);
+                Log.Assert(eventId == m_ProcessEventList.Count);
 #if UNITY_2021_1_OR_NEWER
                 Log.Assert(eventId == m_ProcessEventList[^1]);
 #else
