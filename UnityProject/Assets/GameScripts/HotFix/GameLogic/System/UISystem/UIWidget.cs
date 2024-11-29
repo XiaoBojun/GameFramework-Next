@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GameFramework.Resource;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -127,7 +128,11 @@ namespace GameLogic
 
             TProfiler.BeginSample("OnUpdate");
             bool needUpdate = false;
-            if (listNextUpdateChild is not { Count: > 0 })
+#if UNITY_2021_1_OR_NEWER
+                     if (listNextUpdateChild is not { Count: > 0 })
+#else
+            if (listNextUpdateChild != null && listNextUpdateChild.Count>0)
+#endif
             {
                 HasOverrideUpdate = true;
                 OnUpdate();

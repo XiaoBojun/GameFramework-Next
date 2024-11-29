@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GameBase;
 using GameFramework;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -102,7 +103,12 @@ namespace GameLogic
                 return null;
             }
 
-            UIWindow topWindow = _stack[^1];
+
+#if UNITY_2021_1_OR_NEWER
+                    UIWindow topWindow = _stack[^1];
+#else
+            UIWindow topWindow = _stack[_stack .Count- 1];
+#endif
             return topWindow;
         }
 

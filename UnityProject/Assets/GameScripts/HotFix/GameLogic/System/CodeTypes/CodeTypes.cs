@@ -9,8 +9,8 @@ namespace GameLogic
         private static CodeTypes s_Instance;
         public static CodeTypes Instance => s_Instance ??= new CodeTypes();
 
-        private readonly Dictionary<string, Type> m_AllTypes = new();
-        private readonly UnOrderMultiMapSet<Type, Type> m_Types = new();
+        private readonly Dictionary<string, Type> m_AllTypes = new Dictionary<string, Type>();
+        private readonly UnOrderMultiMapSet<Type, Type> m_Types = new UnOrderMultiMapSet<Type, Type>();
         
         public void Init(Assembly[] assemblies)
         {
