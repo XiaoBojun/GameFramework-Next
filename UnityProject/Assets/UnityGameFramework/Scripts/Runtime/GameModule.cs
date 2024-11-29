@@ -104,6 +104,11 @@ public class GameModule : MonoBehaviour
     /// 资源组件拓展。
     /// </summary>
     public static ResourceExtComponent ResourceExt { get; private set; }
+
+    /// <summary>
+    /// 获取界面组件。
+    /// </summary>
+    public static UIComponent UI { get; private set; }
     #endregion
 
     /// <summary>
@@ -130,6 +135,7 @@ public class GameModule : MonoBehaviour
         Timer = Get<TimerComponent>();
         TextureSet = Get<TextureSetComponent>();
         ResourceExt = Get<ResourceExtComponent>();
+        UI = Get<UIComponent>();
     }
 
     public static void InitCustomComponents()
